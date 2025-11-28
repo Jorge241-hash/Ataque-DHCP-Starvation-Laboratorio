@@ -6,6 +6,8 @@
 <img width="555" height="383" alt="dhcp starvation logo" src="https://github.com/user-attachments/assets/93ca7d5a-0f8f-4b18-8034-898ceaa9a883" />
 
 </div>
+<br>
+<br>
 
 ## DESCRIPCIÓN DEL ATAQUE
 
@@ -17,16 +19,49 @@ El propósito que tiene este ataque es denegar el servicio a los clientes para q
 
 También, una vez el pool de direcciones está agotado, el atacante puede emitir direcciones IP correctas a los clientes.
 
+<br>
+<br>
 
-HERRAMIENTAS UTLIZADAS PARA LA REALIZACIÓN DEL PROYECTO
+## HERRAMIENTAS UTLIZADAS PARA LA REALIZACIÓN DEL PROYECTO
 
 
-Para la realización de este ataque van a ser necesarias las siguientes herramientas:  
+Para la realización de este ataque van a ser necesarias las siguientes herramientas: 
 
-    Voy a utilizar un total de 3 máquinas virtuales con Red Interna:  
+ - Máquina Atacante: Usará el sistema operativo Kali en Red Interna en el que se haremos uso de la herramienta Yersinia.  
 
-            Máquina Atacante: Usará el sistema operativo Kali en el que se usará Yersinia.  
+ - Servidor DHCP Legítimo: Este servidor DHCP tendrá configurado un pequeño pool de direcciones. El sistema operativo que usará será un Ubuntu Server en Red Interna. 
 
-            Servidor DHCP Legítimo: Este servidor DHCP tendrá configurado un pequeño pool de direcciones. El sistema operativo que usará será un Ubuntu Server. 
+ - Máquina Víctima: Con esta máquina se comprobará que no podrá obtener IP debido al ataque DHCP Starvation. Usará el sistema operativo de Windows en Red Interna.
 
-            Máquina Víctima: Con esta máquina se comprobará que no podrá obtener IP debido al ataque DHCP Starvation. Usará el sistema operativo de Windows.  
+ - Yersina: Esta herramienta es un framework de pentesting que explota vulnerabilidades en protocolos de red como DHCP, STP, etc...
+
+
+<br>
+<br> 
+
+
+## DESARROLLO DEL PROYECTO
+
+- Primero descargamos el servidor DHCP en mi Ubuntu Server.
+
+ ```bash
+# Actualizar sistema e instalamos el servidor DHCP
+ sudo apt update
+
+ sudo apt install isc-dhcp-server -y
+
+```
+
+<br> 
+
+
+- Ahora procedemos a configurar el Servidor DHCP Legítimo. El archivo de configuracion es **/etc/dhcp/dhcpd.conf**:
+
+ ```bash
+# Abrimos el fichero de configuración
+ sudo nano /etc/dhcp/dhcpd.conf
+
+```
+<br> 
+
+
