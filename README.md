@@ -27,11 +27,11 @@ También, una vez el pool de direcciones está agotado, el atacante puede emitir
 
 Para la realización de este ataque van a ser necesarias las siguientes herramientas: 
 
- - Máquina Atacante: Usará el sistema operativo Kali en Red Interna en el que se haremos uso de la herramienta Yersinia.  
+ - Máquina Atacante: Usará el sistema operativo Kali en Adaptador Puente en el que se haremos uso de la herramienta Yersinia.  
 
- - Servidor DHCP Legítimo: Este servidor DHCP tendrá configurado un pequeño pool de direcciones. El sistema operativo que usará será un Ubuntu Server en Red Interna. 
+ - Servidor DHCP Legítimo: Este servidor DHCP tendrá configurado un pequeño pool de direcciones. El sistema operativo que usará será un Ubuntu Server en Adaptador Puente. 
 
- - Máquina Víctima: Con esta máquina se comprobará que no podrá obtener IP debido al ataque DHCP Starvation. Usará el sistema operativo de Windows en Red Interna.
+ - Máquina Víctima: Con esta máquina se comprobará que no podrá obtener IP debido al ataque DHCP Starvation. Usará el sistema operativo de Windows en Adaptador Puente.
 
  - Yersina: Esta herramienta es un framework de pentesting que explota vulnerabilidades en protocolos de red como DHCP, STP, etc...
 
@@ -52,8 +52,11 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 
 ```
 
-<br> 
+<img width="542" height="147" alt="instalardhcp" src="https://github.com/user-attachments/assets/ae5bc1c9-15a2-49d2-b5e3-2be08bf1e513" />
 
+
+<br> 
+<br>
 
 - Ahora procedemos a configurar el Servidor DHCP Legítimo. El archivo de configuracion es **/etc/dhcp/dhcpd.conf**:
 
