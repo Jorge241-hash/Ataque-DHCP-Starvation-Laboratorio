@@ -152,3 +152,8 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 
 <br>
 <br>
+
+- Ahora en el servidor DHCP enseño como muestra que no puede entregar direcciones IP.
+
+
+<img width="1001" height="270" alt="correcto" src="https://github.com/user-attachments/assets/9f39727b-a918-4f01-bb40-5c071a4cd08d" />
