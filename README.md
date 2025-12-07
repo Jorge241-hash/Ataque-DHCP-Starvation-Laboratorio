@@ -104,7 +104,7 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 <br>
 
 
-- Ahora procedo a abrir el modo interactivo de Yersinia mediante el siguiente comando:
+- Ahora procedo a abrir el modo gráfico de Yersinia mediante el siguiente comando:
 
 
  ```bash
@@ -113,9 +113,18 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 
 ```
 
-<img width="415" height="116" alt="modointeractivo" src="https://github.com/user-attachments/assets/da1b9f55-967d-4223-bb0b-04b913108749" />
+<img width="1091" height="141" alt="abriryersinia" src="https://github.com/user-attachments/assets/19efadd7-ab32-457e-8568-010c06563c04" />
 
 
 <br>
 <br>
+
+- Ahora procedemos a seleccionar la interfaz en la que realizaremos el ataque. En mi caso es enp0s3.
+
+
+<img width="441" height="266" alt="interfazyersinia" src="https://github.com/user-attachments/assets/7331b1f7-a479-489d-bd75-c79c1acc2436" />
+
+
+<br>
+<br> 
 
