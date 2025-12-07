@@ -61,7 +61,7 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 - Ahora procedemos a configurar el Servidor DHCP Legítimo. El archivo de configuracion es **/etc/dhcp/dhcpd.conf**:
 
  ```bash
-# Abrimos el fichero de configuración
+# Abrimos el fichero de configuración principal
  sudo nano /etc/dhcp/dhcpd.conf
 
 ```
@@ -71,8 +71,16 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 <br> 
 <br>
 
+- A continuación, procedemos a indicar la interfaz que vamos a utlizar en el fichero **/etc/default/isc-dhcp-server**:
 
 
+ ```bash
+# Abrimos el fichero de configuración de las interfaces
+ sudo nano /etc/default/isc-dhcp-server
 
+```
 
+<img width="619" height="151" alt="interfazserver" src="https://github.com/user-attachments/assets/713fe665-06b1-4132-9807-7955d286d5a9" />
 
+<br> 
+<br>
