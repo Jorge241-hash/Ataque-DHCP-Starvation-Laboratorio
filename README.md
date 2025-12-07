@@ -88,8 +88,8 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 - Una vez terminado de configurar el servidor DHCP, procedo a configurar el atacante que será en mi máquina de KaliLinux. Primero, instalaré la herramienta de Yersinia que sirve para hacer pruebas de penetración controladas, sobre todo en redes locales.
 
 
-   ```bash
-# Descargo la herramienta Yersinia
+ ```bash
+# Instalo la herramienta Yersinia
  sudo nano /etc/default/isc-dhcp-server
 
 ```
