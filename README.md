@@ -119,7 +119,7 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 <br>
 <br>
 
-- Ahora procedemos a seleccionar la interfaz en la que realizaremos el ataque. En mi caso es enp0s3.
+- Ahora procedo a seleccionar la interfaz en la que realizaremos el ataque. En mi caso es enp0s3.
 
 
 <img width="441" height="266" alt="interfazyersinia" src="https://github.com/user-attachments/assets/7331b1f7-a479-489d-bd75-c79c1acc2436" />
@@ -128,7 +128,7 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 <br>
 <br> 
 
-- Ahora procedemos a seleccionar el tipo de ataque que voy a producir. En mi caso elegiré el Sending Discover Packet, indicando que es un ataque de denegación de servicios ya que dejaremos sin poder conectarse a la red a la víctima mandando paquetes de forma constante hasta saturarlo.
+- A continuación, selecciono el tipo de ataque que voy a producir. En mi caso elegiré el Sending Discover Packet, indicando que es un ataque de denegación de servicios ya que dejaré sin poder conectarse a la red a la víctima mandando paquetes de forma constante hasta saturarlo.
 
 <img width="532" height="378" alt="elegirataque" src="https://github.com/user-attachments/assets/27f5544c-0c0e-4db2-a86a-345a5604db0f" />
 
@@ -136,5 +136,19 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 <br>
 <br> 
 
+- Después de iniciar el ataque, compruebo en Wireshark el tráfico inundado del servidor debido a las peticiones de DHCP Discover.
 
 
+<img width="1095" height="322" alt="wiresharkcomprobacion" src="https://github.com/user-attachments/assets/2e922357-de5b-48fc-9acb-5841a0095c6a" />
+
+<br>
+<br>
+
+- Además, también vemos desde Yersinia como se están enviando los paquetes que inundarán el servidor imposibilitando de entregar IPs a los clientes debido a que se ha agotado el pool mandando direcciones MAC falsas.
+
+
+<img width="573" height="284" alt="yersiniacomprobacion" src="https://github.com/user-attachments/assets/9688693e-e6cb-4fdf-aefb-652f7c2ccd9f" />
+
+
+<br>
+<br>
