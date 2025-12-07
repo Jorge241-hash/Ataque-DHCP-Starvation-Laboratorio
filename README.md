@@ -27,11 +27,11 @@ También, una vez el pool de direcciones está agotado, el atacante puede emitir
 
 Para la realización de este ataque van a ser necesarias las siguientes herramientas: 
 
- - Máquina Atacante: Usaré el sistema operativo Ubuntu en Adaptador Puente en el que se haré uso de la herramienta Yersinia. Ha sido imposible utilizarlo con Kali por problemas de depndencias y versiones.  
+ - Máquina Atacante: Usaré el sistema operativo Ubuntu en Red Interna en el que se haré uso de la herramienta Yersinia. Ha sido imposible utilizarlo con Kali por problemas de depndencias y versiones.  
 
- - Servidor DHCP Legítimo: En este servidor DHCP tendré configurado un pequeño pool de direcciones. El sistema operativo que usaré será un Ubuntu Server en Adaptador Puente. 
+ - Servidor DHCP Legítimo: En este servidor DHCP tendré configurado un pequeño pool de direcciones. El sistema operativo que usaré será un Ubuntu Server en Red Interna. 
 
- - Máquina Víctima: Con esta máquina comprobaré que no podré obtener IP debido al ataque DHCP Starvation. Usaré el sistema operativo de Windows en Adaptador Puente.
+ - Máquina Víctima: Con esta máquina comprobaré que no podré obtener IP debido al ataque DHCP Starvation. Usaré el sistema operativo de Windows en Red Interna.
 
  - Yersina: Esta herramienta es un framework de pentesting que explota vulnerabilidades en protocolos de red como DHCP, STP, etc...
 
@@ -156,4 +156,25 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 - Ahora en el servidor DHCP enseño como muestra que no puede entregar direcciones IP.
 
 
-<img width="1001" height="270" alt="correcto" src="https://github.com/user-attachments/assets/9f39727b-a918-4f01-bb40-5c071a4cd08d" />
+<img width="1001" height="270" alt="correcto" src="https://github.com/user-attachments/assets/9f39727b-a918-4f01-bb40-5c071a4cd08d" /> 
+
+<br>
+<br>
+
+- A continuación, muestro que el cliente Windows no recibe IP debido al ataque
+
+
+<img width="675" height="254" alt="ipwindows" src="https://github.com/user-attachments/assets/86be7374-35b6-4694-9487-923bcdc78b91" />
+
+<br>
+<br>
+
+
+- Por último, muestro el motivo en el visor de eventos que dice que no puede asignar Ip debido al servidor DHCP.
+
+
+<img width="691" height="198" alt="visordeeventos" src="https://github.com/user-attachments/assets/47d46a42-52af-49d0-8b0d-bfe1eaa3e871" />
+
+
+<br>
+<br>
