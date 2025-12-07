@@ -27,11 +27,11 @@ También, una vez el pool de direcciones está agotado, el atacante puede emitir
 
 Para la realización de este ataque van a ser necesarias las siguientes herramientas: 
 
- - Máquina Atacante: Usará el sistema operativo Kali en Adaptador Puente en el que se haremos uso de la herramienta Yersinia.  
+ - Máquina Atacante: Usaré el sistema operativo Kali en Adaptador Puente en el que se haré uso de la herramienta Yersinia.  
 
- - Servidor DHCP Legítimo: Este servidor DHCP tendrá configurado un pequeño pool de direcciones. El sistema operativo que usará será un Ubuntu Server en Adaptador Puente. 
+ - Servidor DHCP Legítimo: En este servidor DHCP tendré configurado un pequeño pool de direcciones. El sistema operativo que usaré será un Ubuntu Server en Adaptador Puente. 
 
- - Máquina Víctima: Con esta máquina se comprobará que no podrá obtener IP debido al ataque DHCP Starvation. Usará el sistema operativo de Windows en Adaptador Puente.
+ - Máquina Víctima: Con esta máquina comprobaré que no podré obtener IP debido al ataque DHCP Starvation. Usaré el sistema operativo de Windows en Adaptador Puente.
 
  - Yersina: Esta herramienta es un framework de pentesting que explota vulnerabilidades en protocolos de red como DHCP, STP, etc...
 
@@ -42,10 +42,10 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 
 ## DESARROLLO DEL PROYECTO
 
-- Primero descargamos el servidor DHCP en mi Ubuntu Server.
+- Primero descargo el servidor DHCP en mi Ubuntu Server.
 
  ```bash
-# Actualizar sistema e instalamos el servidor DHCP
+# Actualizo sistema e instalo el servidor DHCP
  sudo apt update
 
  sudo apt install isc-dhcp-server -y
@@ -58,10 +58,10 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 <br> 
 <br>
 
-- Ahora procedemos a configurar el Servidor DHCP Legítimo. El archivo de configuracion es **/etc/dhcp/dhcpd.conf**:
+- Ahora procedo a configurar el Servidor DHCP Legítimo. El archivo de configuracion es **/etc/dhcp/dhcpd.conf**:
 
  ```bash
-# Abrimos el fichero de configuración principal
+# Abro el fichero de configuración principal
  sudo nano /etc/dhcp/dhcpd.conf
 
 ```
@@ -71,11 +71,11 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 <br> 
 <br>
 
-- A continuación, procedemos a indicar la interfaz que vamos a utlizar en el fichero **/etc/default/isc-dhcp-server**:
+- A continuación, procedo a indicar la interfaz que voy a utlizar en el fichero **/etc/default/isc-dhcp-server**:
 
 
  ```bash
-# Abrimos el fichero de configuración de las interfaces
+# Abro el fichero de configuración de las interfaces
  sudo nano /etc/default/isc-dhcp-server
 
 ```
@@ -84,3 +84,18 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 
 <br> 
 <br>
+
+- Una vez terminado de configurar el servidor DHCP, procedo a configurar el atacante que será en mi máquina de KaliLinux. Primero, instalaré la herramienta de Yersinia que sirve para hacer pruebas de penetración controladas, sobre todo en redes locales.
+
+
+   ```bash
+# Descargo la herramienta Yersinia
+ sudo nano /etc/default/isc-dhcp-server
+
+```
+
+<img width="675" height="161" alt="instalaryersinia" src="https://github.com/user-attachments/assets/d5b6fd46-55e8-4a1e-8afd-daa60ba06ee1" />
+
+<br>
+<br>
+
