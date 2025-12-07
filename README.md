@@ -128,3 +128,13 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 <br>
 <br> 
 
+- Ahora procedemos a seleccionar el tipo de ataque que voy a producir. En mi caso elegiré el Sending Discover Packet, indicando que es un ataque de denegación de servicios ya que dejaremos sin poder conectarse a la red a la víctima mandando paquetes de forma constante hasta saturarlo.
+
+<img width="532" height="378" alt="elegirataque" src="https://github.com/user-attachments/assets/27f5544c-0c0e-4db2-a86a-345a5604db0f" />
+
+
+<br>
+<br> 
+
+
+
