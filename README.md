@@ -27,7 +27,7 @@ También, una vez el pool de direcciones está agotado, el atacante puede emitir
 
 Para la realización de este ataque van a ser necesarias las siguientes herramientas: 
 
- - Máquina Atacante: Usaré el sistema operativo Kali en Adaptador Puente en el que se haré uso de la herramienta Yersinia.  
+ - Máquina Atacante: Usaré el sistema operativo Ubuntu en Adaptador Puente en el que se haré uso de la herramienta Yersinia. Ha sido imposible utilizarlo con Kali por problemas de depndencias y versiones.  
 
  - Servidor DHCP Legítimo: En este servidor DHCP tendré configurado un pequeño pool de direcciones. El sistema operativo que usaré será un Ubuntu Server en Adaptador Puente. 
 
@@ -85,16 +85,36 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 <br> 
 <br>
 
-- Una vez terminado de configurar el servidor DHCP, procedo a configurar el atacante que será en mi máquina de KaliLinux. Primero, instalaré la herramienta de Yersinia que sirve para hacer pruebas de penetración controladas, sobre todo en redes locales.
+- Una vez terminado de configurar el servidor DHCP, procedo a configurar el atacante que será en mi máquina de Ubuntu. Primero, instalaré la herramienta de Yersinia que sirve para hacer pruebas de penetración controladas, sobre todo en redes locales.
 
 
  ```bash
 # Instalo la herramienta Yersinia
- sudo nano /etc/default/isc-dhcp-server
+
+ sudo apt update
+
+ sudo apt install yersinia
 
 ```
 
-<img width="675" height="161" alt="instalaryersinia" src="https://github.com/user-attachments/assets/d5b6fd46-55e8-4a1e-8afd-daa60ba06ee1" />
+<img width="579" height="138" alt="sifunciona" src="https://github.com/user-attachments/assets/7dec5c10-308a-4e55-8ffb-089275cd75b9" />
+
+
+<br>
+<br>
+
+
+- Ahora procedo a abrir el modo interactivo de Yersinia mediante el siguiente comando:
+
+
+ ```bash
+# Abrimos Yersinia
+ sudo yersinia -G
+
+```
+
+<img width="415" height="116" alt="modointeractivo" src="https://github.com/user-attachments/assets/da1b9f55-967d-4223-bb0b-04b913108749" />
+
 
 <br>
 <br>
