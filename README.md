@@ -65,8 +65,8 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
  sudo nano /etc/dhcp/dhcpd.conf
 
 ```
-<img width="496" height="199" alt="configuraciondhcp" src="https://github.com/user-attachments/assets/27b88ae8-08a8-4ee5-b210-3e755e1aa862" />
 
+<img width="505" height="198" alt="serverdhcpbueno" src="https://github.com/user-attachments/assets/7929f360-b1a9-478c-808b-678e5f64f242" />
 
 <br> 
 <br>
