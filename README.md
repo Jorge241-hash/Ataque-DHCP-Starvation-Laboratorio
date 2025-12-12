@@ -1,6 +1,6 @@
 <div align="center">
 
-# LABORATORIO DHCP STARVATION - JORGE LÓPEZ ARCOS
+# LABORATORIO DHCP STARVATION JORGE LÓPEZ ARCOS
 
 
 <img width="555" height="383" alt="dhcp starvation logo" src="https://github.com/user-attachments/assets/93ca7d5a-0f8f-4b18-8034-898ceaa9a883" />
@@ -104,77 +104,95 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 <br>
 
 
-- Ahora procedo a abrir el modo gráfico de Yersinia mediante el siguiente comando:
+- Ahora procedo mediante el modo interactivo de Yersinia procedo a realizar el ataque. El comando que he usado para abrir el yersinia es el siguiente:
 
 
  ```bash
 # Abrimos Yersinia
- sudo yersinia -G
+ sudo yersinia -I
 
 ```
 
-<img width="1091" height="141" alt="abriryersinia" src="https://github.com/user-attachments/assets/19efadd7-ab32-457e-8568-010c06563c04" />
-
+<img width="349" height="160" alt="yersiniadeverdad" src="https://github.com/user-attachments/assets/217c030e-d983-4fef-a197-af2c747ac284" />
 
 <br>
 <br>
 
-- Ahora procedo a seleccionar la interfaz en la que realizaremos el ataque. En mi caso es enp0s3.
+- Antes de empezar el ataque, procedo en la víctima a eliminar la asignación de la IP mediante el siguiente comando
 
+ ```bash
+# Eliminamos la asignación de la IP
+ Ipconfig /release
 
-<img width="441" height="266" alt="interfazyersinia" src="https://github.com/user-attachments/assets/7331b1f7-a479-489d-bd75-c79c1acc2436" />
+```
+
+<img width="461" height="298" alt="release1" src="https://github.com/user-attachments/assets/3dc27343-f3ac-4a8b-a95b-5e2e51070568" />
+
+<br>
+<br> 
+
+- A continuación, deshabilito el adaptador de red de la víctima.
+
+<img width="501" height="376" alt="adaptadordesactivado1" src="https://github.com/user-attachments/assets/2e89c5cc-6cd2-4d18-88cc-ad3e26ed51eb" />
 
 
 <br>
 <br> 
 
-- A continuación, selecciono el tipo de ataque que voy a producir. En mi caso elegiré el Sending Discover Packet, indicando que es un ataque de denegación de servicios ya que dejaré sin poder conectarse a la red a la víctima mandando paquetes de forma constante hasta saturarlo.
 
-<img width="532" height="378" alt="elegirataque" src="https://github.com/user-attachments/assets/27f5544c-0c0e-4db2-a86a-345a5604db0f" />
+- Después de deshabilitar el adaptador en la víctima, procedo a iniciar el ataque. Una vez dentro del modo interactivo de yersinia pulso F2 para activar el modo DHCP y después con la tecla "X" nos deja elegir el tipo de ataque DHCP que en mi caso es el 1.
 
-
-<br>
-<br> 
-
-- Después de iniciar el ataque, compruebo en Wireshark el tráfico inundado del servidor debido a las peticiones de DHCP Discover.
-
-
-<img width="1095" height="322" alt="wiresharkcomprobacion" src="https://github.com/user-attachments/assets/2e922357-de5b-48fc-9acb-5841a0095c6a" />
-
-<br>
-<br>
-
-- Además, también vemos desde Yersinia como se están enviando los paquetes que inundarán el servidor imposibilitando de entregar IPs a los clientes debido a que se ha agotado el pool mandando direcciones MAC falsas.
-
-
-<img width="573" height="284" alt="yersiniacomprobacion" src="https://github.com/user-attachments/assets/9688693e-e6cb-4fdf-aefb-652f7c2ccd9f" />
+<img width="1075" height="400" alt="yersiniapanel" src="https://github.com/user-attachments/assets/ed1a5bcd-4b93-45d2-be8d-9939b2dddc6a" />
 
 
 <br>
 <br>
 
-- Ahora en el servidor DHCP enseño como muestra que no puede entregar direcciones IP.
+- Una vez iniciado se muestra el envío de mensajes Discover que tiene como objetivo saturar el servidor DHCP mandando cientas de direcciones MAC para agotar el pool de direcciones del servidor DHCP y que la víctima no tenga IP.
 
-
-<img width="1001" height="270" alt="correcto" src="https://github.com/user-attachments/assets/9f39727b-a918-4f01-bb40-5c071a4cd08d" /> 
-
-<br>
-<br>
-
-- A continuación, muestro que el cliente Windows no recibe IP debido al ataque
-
-
-<img width="675" height="254" alt="ipwindows" src="https://github.com/user-attachments/assets/86be7374-35b6-4694-9487-923bcdc78b91" />
+<img width="1139" height="244" alt="yersiniaempieza" src="https://github.com/user-attachments/assets/0f1f3baf-0e55-4db0-aca0-a9c7cb2dce2d" />
 
 <br>
 <br>
 
+- Ahora en el servidor DHCP enseño como muestra que no quedan leases.
 
-- Por último, muestro el motivo en el visor de eventos que dice que no puede asignar Ip debido al servidor DHCP.
-
-
-<img width="691" height="198" alt="visordeeventos" src="https://github.com/user-attachments/assets/47d46a42-52af-49d0-8b0d-bfe1eaa3e871" />
-
+<img width="1003" height="415" alt="noquedanleases" src="https://github.com/user-attachments/assets/05c09dbc-361e-4a6e-82fb-9cf5beddabf7" />
 
 <br>
 <br>
+
+
+- A continuación, vuelvo a activar el adaptador de red de la víctima.
+
+<img width="495" height="220" alt="activaradaptador1" src="https://github.com/user-attachments/assets/fe98ead2-0f8f-4268-ab4a-0d8a7f3887b7" />
+
+<br>
+<br>
+
+
+- Después de habilitar el adaptador, procedo a pedirle al servidor DHCP que le asigne una IP pero como está saturado nunca podrá asignarle una IP.
+
+<img width="750" height="137" alt="elrenew" src="https://github.com/user-attachments/assets/932e16d6-5c04-433d-be22-cbd848ba7964" />
+
+<br>
+<br>
+
+
+- Ahora vuelvo a desactivar el adaptador y desactivo el ataque para que la víctima pueda tener IP.
+
+<img width="306" height="146" alt="pararataque" src="https://github.com/user-attachments/assets/ee8192d0-b13b-4b43-b88f-a1afa592cf28" />
+
+<br>
+<br>
+
+
+- Una vez parado el ataque, vuelvo a activar el adaptador y pido de nuevo al servidor DHCP que me asigne una IP que en este caso me la dará.
+
+<img width="597" height="230" alt="renewcorrecto" src="https://github.com/user-attachments/assets/8d1f0b5d-a274-47e3-aad0-d046f2828207" />
+
+<br>
+<br>
+
+
+
