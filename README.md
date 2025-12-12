@@ -214,7 +214,7 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 
 ## BIBLIOGRAFÍA
 
-A continuación, muestro los siguientes videos y tutoriales que me ha servidor para aprender a realizar este proyecto: 
+A continuación, muestro los siguientes videos y tutoriales que me ha servido para aprender a realizar este proyecto: 
 
 - https://youtu.be/jyo_3JForbA?si=uG4n1hGbBudUiqFz
 
