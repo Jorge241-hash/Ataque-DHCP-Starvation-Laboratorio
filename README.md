@@ -13,11 +13,11 @@
 
 El ataque DHCP Starvation es un ataque de red que consiste en agotar el pool de direcciones que puede asignar el servidor DHCP. El protocolo DHCP utiliza el modelo cliente/servidor que usa el puerto UDP 67 en el servidor y UDP 68 en el cliente.  
 
-Este ataque funciona en inundar el servidor DHCP con muchas solicitudes DHCP Discover desde un cliente malicioso. Utilizamos diferentes direcciones MAC para cada solicitud.  
+Este ataque tiene el fin de inundar el servidor DHCP con cientas de solicitudes DHCP Discover desde un cliente malicioso. Además, utilizamos diferentes direcciones MAC para cada solicitud.  
 
 El propósito que tiene este ataque es denegar el servicio a los clientes para que no puedan conectarse a la red.  
 
-También, una vez el pool de direcciones está agotado, el atacante puede emitir direcciones IP correctas a los clientes.
+También, a parte de dejar sin IP a la víctima, el atacante puede utilizar un servidor DHCP ilegítimo con el objetivo de emitir direcciones IP correctas a las víctimas.
 
 <br>
 <br>
@@ -27,7 +27,7 @@ También, una vez el pool de direcciones está agotado, el atacante puede emitir
 
 Para la realización de este ataque van a ser necesarias las siguientes herramientas: 
 
- - Máquina Atacante: Usaré el sistema operativo Ubuntu en Red Interna en el que se haré uso de la herramienta Yersinia. Ha sido imposible utilizarlo con Kali por problemas de depndencias y versiones.  
+ - Máquina Atacante: Usaré Kali Linux en Red Interna en el que se haré uso de la herramienta Yersinia.
 
  - Servidor DHCP Legítimo: En este servidor DHCP tendré configurado un pequeño pool de direcciones. El sistema operativo que usaré será un Ubuntu Server en Red Interna. 
 
@@ -42,7 +42,7 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 
 ## DESARROLLO DEL PROYECTO
 
-- Primero descargo el servidor DHCP en mi Ubuntu Server.
+- Primero descargo las dependencias y actualizamos.
 
  ```bash
 # Actualizo sistema e instalo el servidor DHCP
@@ -53,7 +53,6 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 ```
 
 <img width="542" height="147" alt="instalardhcp" src="https://github.com/user-attachments/assets/ae5bc1c9-15a2-49d2-b5e3-2be08bf1e513" />
-
 
 <br> 
 <br>
@@ -181,6 +180,13 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 
 - Después de habilitar el adaptador, procedo a pedirle al servidor DHCP que le asigne una IP pero como está saturado nunca podrá asignarle una IP.
 
+ ```bash
+# Pedimos al servidor DHCP que me asigne una IP
+
+ Ipconfig /release
+
+```
+
 <img width="750" height="137" alt="elrenew" src="https://github.com/user-attachments/assets/932e16d6-5c04-433d-be22-cbd848ba7964" />
 
 <br>
@@ -213,8 +219,7 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 
 ## CONCLUSIONES 
 
-
-
+En conclusión, me ha parecido un proyecto muy interesado donde he aprendido a realizar un ataque en red como es el DHCP Starvation. Además, he aprendido a usar la herramienta de Yersinia que sirve para poder realizar diferentes ataques STP, Rogue DHCP, MAC Spoofing, etc... Recomiendo utilizar estas herramientas porque sirven para comprender el funcionamiento de muchos ataques. 
 
 
 <br>
@@ -222,11 +227,13 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 
 ## BIBLIOGRAFÍA
 
-A continuación, muestro los siguientes videos y tutoriales que me ha servido para aprender a realizar este proyecto: 
+A continuación, muestro los siguientes enlaces a videos y tutoriales que me ha servido para realizar este proyecto: 
 
 - https://youtu.be/jyo_3JForbA?si=uG4n1hGbBudUiqFz
 
 - https://blog.tiraquelibras.com/?p=491
+
+- https://abcxperts.com/que-es-un-ataque-dhcp-starvation/?srsltid=AfmBOoqokXnVu9ZOV7On0zBjshL6TrpGST1Gl9mqrqM783BjxYsXQdaW
 
 
 
