@@ -178,6 +178,14 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 <br>
 <br>
 
+- Además, en el visor de eventos muestra un aviso de que no se ha podido contactar con el servidor DHCP.
+
+
+<img width="631" height="498" alt="visordeeventos" src="https://github.com/user-attachments/assets/e093de3b-419b-49f3-9685-151ef2c04c7b" />
+
+<br>
+<br>
+
 
 - Ahora vuelvo a desactivar el adaptador y paro el ataque para que la víctima pueda tener IP.
 
@@ -193,6 +201,26 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 
 <br>
 <br>
+
+
+## CONCLUSIONES 
+
+
+
+
+
+<br>
+<br>
+
+## BIBLIOGRAFÍA
+
+A continuación, muestro los siguientes videos y tutoriales que me ha servidor para aprender a realizar este proyecto: 
+
+- https://youtu.be/jyo_3JForbA?si=uG4n1hGbBudUiqFz
+
+- https://blog.tiraquelibras.com/?p=491
+
+
 
 
 
