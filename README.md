@@ -155,6 +155,14 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 <br>
 <br>
 
+
+- Además, en Wireshark podemos ver el tráfico de paquetes Discover que se ha generado con Yersinia.
+
+<img width="1095" height="322" alt="wiresharkcomprobacion" src="https://github.com/user-attachments/assets/20484baf-4ffb-4ef4-aad5-43a42383972b" />
+
+<br>
+<br>
+
 - Ahora en el servidor DHCP enseño como muestra que no quedan leases.
 
 <img width="1003" height="415" alt="noquedanleases" src="https://github.com/user-attachments/assets/05c09dbc-361e-4a6e-82fb-9cf5beddabf7" />
