@@ -1,6 +1,6 @@
 <div align="center">
 
-# LABORATORIO DHCP STARVATION JORGE LÓPEZ ARCOS
+# LABORATORIO DHCP STARVATION - JORGE LÓPEZ ARCOS
 
 
 <img width="555" height="383" alt="dhcp starvation logo" src="https://github.com/user-attachments/assets/93ca7d5a-0f8f-4b18-8034-898ceaa9a883" />
