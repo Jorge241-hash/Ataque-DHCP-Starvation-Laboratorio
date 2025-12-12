@@ -179,7 +179,7 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 <br>
 
 
-- Ahora vuelvo a desactivar el adaptador y desactivo el ataque para que la víctima pueda tener IP.
+- Ahora vuelvo a desactivar el adaptador y paro el ataque para que la víctima pueda tener IP.
 
 <img width="306" height="146" alt="pararataque" src="https://github.com/user-attachments/assets/ee8192d0-b13b-4b43-b88f-a1afa592cf28" />
 
