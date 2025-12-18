@@ -34,8 +34,6 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 
  - Máquina Víctima: Con esta máquina comprobaré que no podré obtener IP debido al ataque DHCP Starvation. Usaré el sistema operativo de Windows en Red Interna.
 
- - Switch: Utilizaré una máquina Ubuntu que funcionará como un switch para mitigar el ataque DHCP Starvation. Usaré tres interfaces en red interna.
-
  - Yersina: Esta herramienta es un framework de pentesting que explota vulnerabilidades en protocolos de red como DHCP, STP, etc...
 
 
@@ -99,7 +97,8 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 
 ```
 
-<img width="579" height="138" alt="sifunciona" src="https://github.com/user-attachments/assets/7dec5c10-308a-4e55-8ffb-089275cd75b9" />
+<img width="663" height="202" alt="yersiniainstalado" src="https://github.com/user-attachments/assets/b936a14e-0f0e-45d5-aef8-2c6299b87ec2" />
+
 
 
 <br>
@@ -220,93 +219,47 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 <br>
 
 
-## MITIGACIÓN DEL ATAQUE MEDIANTE LA HERRAMIENTA OVS
+## MITIGACIÓN DEL ATAQUE DHCP STARVATION
 
-A continuación, procederé a explicaré la mitigación del ataque DHCP Starvation mediante la herramienta OVS
-
-
-- Antes de todo, instalamos la herramienta de OVS mediante el siguiente comando.
-
- ```bash
-# Instalación de OVS
-
- sudo apt install -y openvswitch-switch
-
-```
-
-<img width="616" height="146" alt="instalacion" src="https://github.com/user-attachments/assets/8b425523-0d7e-4b7b-a7b3-1c80c141efb3" />
-
-<br>
-<br>
+A continuación, procederé a explicar varios métodos que pueden ayudar a reducir el impacto de este ataque.
 
 
-- A continuación, procedo a configurar OVS. Primero, creo el Bridge OVS y después añado las tres interfaces al Bridge.
+- Primero de todo, en el fichero **dhcpd.conf** activamos la siguiente opción que prohibirá asignar direcciones IP a los clientes que no estén definidos en la configuración. Después, asignamos una IP fija a un cliente DHCP identificándolo con su dirección MAC.
 
  ```bash
-# Creación del bridge
+# Activamos la opción
 
- sudo ovs-vsctl add-br br0
+ deny unknown-clients;
 
-# Añadir interfaces al bridge
-
- sudo ovs-vsctl add-port br0 enp0s3
- sudo ovs-vsctl add-port br0 enp0s8
- sudo ovs-vsctl add-port br0 enp0s9
-
-```
-
-<img width="503" height="210" alt="mitigacion1" src="https://github.com/user-attachments/assets/506df5eb-e7b4-452a-ac82-67a3d93f5b08" />
-
-<br>
-<br>
-
-- Ahora procedo a realizar generar tráfico desde la víctima mediante los siguientes comandos:
-
-```bash
- # Generamos tráfico
-
-   Ipconfig /release
-
-   Ipconfig /renew
+ host cliente_victima {
+    hardware ethernet 08:00:27:AA:BB:CC;
+    fixed-address 192.168.1.50;
+}
 
 ```
 
-<img width="564" height="424" alt="releaseyrenew" src="https://github.com/user-attachments/assets/dca33c04-1a3d-4470-b5f0-cd6b53667e35" />
+<img width="319" height="113" alt="mitigacion3bien" src="https://github.com/user-attachments/assets/17a60be3-871f-4ea4-a30a-00b4c2bbc320" />
 
 
 <br>
 <br>
 
 
-- A continuación, ejecutamos el siguiente comando que nos muestra que ha aprendido la dirección MAC de la víctima.
+- Una vez se inicia el ataque con Yersinia, el servidor DHCP descartará las solicitudes DHCP de clientes no definidos, salvo las que estén asociadas a direcciones MAC autorizadas.
 
-```bash
-# Vemos que ha aprendido la MAC de la víctima
-
- sudo ovs-appctl fdb/show br0
-
-```
-
-<img width="444" height="226" alt="vermac" src="https://github.com/user-attachments/assets/8054476f-834c-465b-a975-6a75666aaaf1" />
-
-<br>
-<br>
-
-
-- Por último, ejecutamos el siguiente comando que no evitará que se agote el pool pero protege el puerto de la víctima limitando la MAC.
-
-```bash
-# Protegemos el puerto de la víctima limitando la MAC
-
- sudo ovs-vsctl set port enp0s8 other-config:port-security=08:00:27:c3:01:67
-
-```
-
-<img width="863" height="114" alt="mitigacion2" src="https://github.com/user-attachments/assets/6e5b4f49-5619-4d97-bc2f-6829297fae41" />
+<img width="962" height="448" alt="mitigacion1bien" src="https://github.com/user-attachments/assets/fa237b0e-e71f-4e98-aa66-30c2df93db9b" />
 
 
 <br>
 <br>
+
+- Ahora desde la víctima compruebo que recibe dirección IP aunque se haya iniciado el ataque:
+
+<img width="567" height="428" alt="mitigacion2bien" src="https://github.com/user-attachments/assets/c0244ef7-b32a-4e7c-b534-a1ad039f39e2" />
+
+<br>
+<br>
+
 
 ## CONCLUSIONES 
 
