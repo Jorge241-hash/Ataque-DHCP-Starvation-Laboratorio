@@ -261,12 +261,12 @@ A continuación, procederé a explicaré la mitigación del ataque DHCP Starvati
 
 - Ahora procedo a realizar generar tráfico desde la víctima mediante los siguientes comandos:
 
-  ```bash
-# Generamos tráfico
+```bash
+ # Generamos tráfico
 
- Ipconfig /release
+   Ipconfig /release
 
- Ipconfig /renew
+   Ipconfig /renew
 
 ```
 
@@ -277,9 +277,9 @@ A continuación, procederé a explicaré la mitigación del ataque DHCP Starvati
 <br>
 
 
-- A continuación, ejecutamos elsiguiente comando que nos muestra que ha aprendido la dirección MAC de la víctima.
+- A continuación, ejecutamos el siguiente comando que nos muestra que ha aprendido la dirección MAC de la víctima.
 
-  ```bash
+```bash
 # Vemos que ha aprendido la MAC de la víctima
 
  sudo ovs-appctl fdb/show br0
@@ -292,9 +292,9 @@ A continuación, procederé a explicaré la mitigación del ataque DHCP Starvati
 <br>
 
 
-- Ahora ejecutamos el siguiente comando que no evitará que se agote el pool pero protege el puerto de la víctima limitando la MAC.
+- Por último, ejecutamos el siguiente comando que no evitará que se agote el pool pero protege el puerto de la víctima limitando la MAC.
 
-  ```bash
+```bash
 # Protegemos el puerto de la víctima limitando la MAC
 
  sudo ovs-vsctl set port enp0s8 other-config:port-security=08:00:27:c3:01:67
