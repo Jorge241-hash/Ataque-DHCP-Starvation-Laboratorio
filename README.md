@@ -217,6 +217,54 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 <br>
 
 
+## MITIGACIÓN DEL ATAQUE MEDIANTE LA HERRAMIENTA EBTABLES
+
+A continuación, procederé a explicar como poder evitar este ataque mediante la herramienta de Linux Ebtables.
+
+
+- Antes de instalar esta herramienta, primero verificamos los logs. En el fichero principal de DHCP comprobamos que está activada la siguiente opción.
+
+ ```bash
+# Activamos la siguiente opción en el fichero dhcpd.conf
+
+ log-facility local7;
+
+```
+
+<img width="778" height="92" alt="logfacility" src="https://github.com/user-attachments/assets/2a37109b-c4fa-495d-beb0-e3375df2e072" />
+
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+
 ## CONCLUSIONES 
 
 En conclusión, me ha parecido un proyecto muy interesado donde he aprendido a realizar un ataque en red como es el DHCP Starvation. Además, he aprendido a usar la herramienta de Yersinia que sirve para poder realizar diferentes ataques STP, Rogue DHCP, MAC Spoofing, etc... Recomiendo utilizar estas herramientas porque sirven para comprender el funcionamiento de muchos ataques. 
