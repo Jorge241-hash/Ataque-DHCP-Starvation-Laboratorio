@@ -9,6 +9,7 @@
 <br>
 <br>
 
+ 
 ## DESCRIPCIÓN DEL ATAQUE
 
 El ataque DHCP Starvation es un ataque de red que consiste en agotar el pool de direcciones que puede asignar el servidor DHCP. El protocolo DHCP utiliza el modelo cliente/servidor que usa el puerto UDP 67 en el servidor y UDP 68 en el cliente.  
@@ -22,7 +23,7 @@ También, a parte de dejar sin IP a la víctima, el atacante puede utilizar un s
 <br>
 <br>
 
-## HERRAMIENTAS UTLIZADAS PARA LA REALIZACIÓN DEL PROYECTO
+## HERRAMIENTAS UTILIZADAS PARA LA REALIZACIÓN DEL PROYECTO
 
 
 Para la realización de este ataque van a ser necesarias las siguientes herramientas: 
@@ -309,8 +310,8 @@ A continuación, procederé a explicaré la mitigación del ataque DHCP Starvati
 
 ## CONCLUSIONES 
 
+ 
 En conclusión, me ha parecido un proyecto muy interesado donde he aprendido a realizar un ataque en red como es el DHCP Starvation. Además, he aprendido a usar la herramienta de Yersinia que sirve para poder realizar diferentes ataques STP, Rogue DHCP, MAC Spoofing, etc... Recomiendo utilizar estas herramientas porque sirven para comprender el funcionamiento de muchos ataques. 
-
 
 <br>
 <br>
