@@ -33,6 +33,8 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 
  - Máquina Víctima: Con esta máquina comprobaré que no podré obtener IP debido al ataque DHCP Starvation. Usaré el sistema operativo de Windows en Red Interna.
 
+ - Switch: Utilizaré una máquina Ubuntu que funcionará como un switch para mitigar el ataque DHCP Starvation. Usaré tres interfaces en red interna.
+
  - Yersina: Esta herramienta es un framework de pentesting que explota vulnerabilidades en protocolos de red como DHCP, STP, etc...
 
 
@@ -217,49 +219,89 @@ Para la realización de este ataque van a ser necesarias las siguientes herramie
 <br>
 
 
-## MITIGACIÓN DEL ATAQUE MEDIANTE LA HERRAMIENTA EBTABLES
+## MITIGACIÓN DEL ATAQUE MEDIANTE LA HERRAMIENTA OVS
 
-A continuación, procederé a explicar como poder evitar este ataque mediante la herramienta de Linux Ebtables.
+A continuación, procederé a explicaré la mitigación del ataque DHCP Starvation mediante la herramienta OVS
 
 
-- Antes de instalar esta herramienta, primero verificamos los logs. En el fichero principal de DHCP comprobamos que está activada la siguiente opción.
+- Antes de todo, instalamos la herramienta de OVS mediante el siguiente comando.
 
  ```bash
-# Activamos la siguiente opción en el fichero dhcpd.conf
+# Instalación de OVS
 
- log-facility local7;
+ sudo apt install -y openvswitch-switch
 
 ```
 
-<img width="778" height="92" alt="logfacility" src="https://github.com/user-attachments/assets/2a37109b-c4fa-495d-beb0-e3375df2e072" />
+<img width="616" height="146" alt="instalacion" src="https://github.com/user-attachments/assets/8b425523-0d7e-4b7b-a7b3-1c80c141efb3" />
 
 <br>
 <br>
 
 
+- A continuación, procedo a configurar OVS. Primero, creo el Bridge OVS y después añado las tres interfaces al Bridge.
+
+ ```bash
+# Creación del bridge
+
+ sudo ovs-vsctl add-br br0
+
+# Añadir interfaces al bridge
+
+ sudo ovs-vsctl add-port br0 enp0s3
+ sudo ovs-vsctl add-port br0 enp0s8
+ sudo ovs-vsctl add-port br0 enp0s9
+
+```
+
+<img width="503" height="210" alt="mitigacion1" src="https://github.com/user-attachments/assets/506df5eb-e7b4-452a-ac82-67a3d93f5b08" />
+
+<br>
+<br>
+
+- Ahora procedo a realizar generar tráfico desde la víctima mediante los siguientes comandos:
+
+  ```bash
+# Generamos tráfico
+
+ Ipconfig /release
+
+ Ipconfig /renew
+
+```
+
+<img width="564" height="424" alt="releaseyrenew" src="https://github.com/user-attachments/assets/dca33c04-1a3d-4470-b5f0-cd6b53667e35" />
 
 
+<br>
+<br>
 
 
+- A continuación, ejecutamos elsiguiente comando que nos muestra que ha aprendido la dirección MAC de la víctima.
+
+  ```bash
+# Vemos que ha aprendido la MAC de la víctima
+
+ sudo ovs-appctl fdb/show br0
+
+```
+
+<img width="444" height="226" alt="vermac" src="https://github.com/user-attachments/assets/8054476f-834c-465b-a975-6a75666aaaf1" />
+
+<br>
+<br>
 
 
+- Ahora ejecutamos el siguiente comando que no evitará que se agote el pool pero protege el puerto de la víctima limitando la MAC.
 
+  ```bash
+# Protegemos el puerto de la víctima limitando la MAC
 
+ sudo ovs-vsctl set port enp0s8 other-config:port-security=08:00:27:c3:01:67
 
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+<img width="863" height="114" alt="mitigacion2" src="https://github.com/user-attachments/assets/6e5b4f49-5619-4d97-bc2f-6829297fae41" />
 
 
 <br>
