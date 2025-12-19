@@ -264,7 +264,7 @@ A continuación, procederé a explicar varios métodos que pueden ayudar a reduc
 ## CONCLUSIONES 
 
  
-En conclusión, me ha parecido un proyecto muy interesado donde he aprendido a realizar un ataque en red como es el DHCP Starvation. Además, he aprendido a usar la herramienta de Yersinia que sirve para poder realizar diferentes ataques STP, Rogue DHCP, MAC Spoofing, etc... Recomiendo utilizar estas herramientas porque sirven para comprender el funcionamiento de muchos ataques. 
+En conclusión, me ha parecido un proyecto muy interesado donde he aprendido a realizar un ataque en red como es el DHCP Starvation. Además, he aprendido a usar la herramienta de Yersinia que sirve para poder realizar diferentes ataques STP, Rogue DHCP, MAC Spoofing, etc... Por último, recomiendo realizar este tipo de ataques porque aprendes a ver las vulnerabilidades que pueden tener los servidores, sitios web, etc... 
 
 <br>
 <br>
